@@ -18,6 +18,8 @@ class Home extends StatelessWidget {
           ),
           backgroundColor: const Color(0xFF03fcb1),
           bottom: const TabBar(
+            indicator: BoxDecoration(color: Colors.brown),
+            labelColor: Color(0xFF03fcb1),
             tabs: <Widget>[
               Tab(
                 text: "Juz",
@@ -27,14 +29,41 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: TabBarView( 
           children: [
+            // Tab 1
             Container(
-              child: const Text('Tab 1'),
+              color: Colors.brown, 
+            child:SingleChildScrollView(
+              child: Column(
+                children: List.generate(
+                  30, 
+                  (index) => Container(
+                    margin: const EdgeInsets.all(10),
+                  child:ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF03fcb1),
+                        foregroundColor: Colors.brown,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(5), // Rounded corners
+                        ),
+                        padding: const EdgeInsets.all(20),
+                        minimumSize: const Size(double.infinity, 0),
+                      ),
+                      child: Text('Juz ${index+1}')
+                      )
+                )
+                )
+              ),
             ),
+            ),
+            // Tab 2,
             Container(
               child: const Text('Tab 2'),
             ),
+            // Tab 3
             Container(
               child: const Text('Tab 3'),
             )
