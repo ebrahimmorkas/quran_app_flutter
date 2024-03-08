@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/cream_color.dart';
+import 'package:quran_app/tabs/juz_tab.dart';
+import 'package:quran_app/tabs/surah_tab.dart';
+import 'package:quran/quran.dart' as quran;
+
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -32,37 +36,9 @@ class Home extends StatelessWidget {
         body: TabBarView( 
           children: [
             // Tab 1
-            Container(
-              color: Colors.brown, 
-            child:SingleChildScrollView(
-              child: Column(
-                children: List.generate(
-                  30, 
-                  (index) => Container(
-                    margin: const EdgeInsets.all(10),
-                  child:ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF03fcb1),
-                        foregroundColor: Colors.brown,
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(5), // Rounded corners
-                        ),
-                        padding: const EdgeInsets.all(20),
-                        minimumSize: const Size(double.infinity, 0),
-                      ),
-                      child: Text('Juz ${index+1}')
-                      )
-                )
-                )
-              ),
-            ),
-            ),
+              JuzTab(),
             // Tab 2,
-            Container(
-              child: const Text('Tab 2'),
-            ),
+            const SurahTab(),
             // Tab 3
             Container(
               child: const Text('Tab 3'),
