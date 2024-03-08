@@ -15,12 +15,28 @@ class _DisplaySurahState extends State<DisplaySurah> {
       appBar: AppBar(
         title: Text(
           '${widget.surahNumber}',
-        style: TextStyle(
-              color: Colors.brown,
+          style: const TextStyle(
+            color: Colors.brown,
+          ),
+        ),
+        backgroundColor: const Color(0xFF03fcb1),
+      ),
+      body: SafeArea(
+         child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ListView.builder(
+              itemCount: quran.getVerseCount(widget.surahNumber),
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    quran.getVerse(widget.surahNumber, index + 1, verseEndSymbol: true),
+                    textAlign: TextAlign.right,
+                  ),
+                );
+              },
             ),
           ),
-          backgroundColor: const Color(0xFF03fcb1),
-          ),
+        ),
     );
   }
-} 
+}
