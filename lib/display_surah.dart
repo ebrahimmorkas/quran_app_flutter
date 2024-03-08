@@ -22,8 +22,10 @@ class _DisplaySurahState extends State<DisplaySurah> {
         backgroundColor: const Color(0xFF03fcb1),
       ),
       body: SafeArea(
-         child: Padding(
-            padding: const EdgeInsets.all(15.0),
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Container(
+            color: const Color(0xFF03fcb1), // Background color
             child: ListView.builder(
               itemCount: quran.getVerseCount(widget.surahNumber),
               itemBuilder: (context, index) {
@@ -31,12 +33,14 @@ class _DisplaySurahState extends State<DisplaySurah> {
                   title: Text(
                     quran.getVerse(widget.surahNumber, index + 1, verseEndSymbol: true),
                     textAlign: TextAlign.right,
+                    style: const TextStyle(color: Colors.brown), // Foreground color
                   ),
                 );
               },
             ),
           ),
         ),
+      ),
     );
   }
 }
