@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/quran.dart' as quran;
+import 'package:quran_app/display_surah.dart';
 
 class SurahTab extends StatefulWidget {
   const SurahTab({super.key});
@@ -11,6 +12,14 @@ class SurahTab extends StatefulWidget {
 class _SurahTabState extends State<SurahTab> {
   @override
   Widget build(BuildContext context) {
+    void getSurah(surahNumber) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DisplaySurah(surahNumber)
+            )
+          );
+    }
     return Container(
       color: Colors.brown,
       child: SingleChildScrollView(
@@ -20,7 +29,7 @@ class _SurahTabState extends State<SurahTab> {
                 (index) => Container(
                     margin: const EdgeInsets.all(10),
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {getSurah(index + 1);},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF03fcb1),
                           foregroundColor: Colors.brown,
