@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran/quran.dart' as quran;
+import 'package:quran_app/display_juz.dart';
 
 class JuzTab extends StatefulWidget{
   @override
@@ -8,6 +10,14 @@ class JuzTab extends StatefulWidget{
 class _JuzTabState extends State<JuzTab> {
   @override
   Widget build(context) {
+    void getJuz(juzNumber) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DisplayJuz(juzNumber)
+          )
+      );
+    }
     return Container(
               color: Colors.brown, 
             child:SingleChildScrollView(
@@ -17,7 +27,7 @@ class _JuzTabState extends State<JuzTab> {
                   (index) => Container(
                     margin: const EdgeInsets.all(10),
                   child:ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {getJuz(index + 1);},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF03fcb1),
                         foregroundColor: Colors.brown,
